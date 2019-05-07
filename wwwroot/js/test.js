@@ -1,61 +1,36 @@
-﻿
-$('li a.group').on('click', function (event) {
+﻿$('li a.group').on('click', function (event) {
     var group = $(this).attr('data-name');
-    var accordion = $('#accordion');
-    accordion.attr('data-group', group); 
+    var tbody = $('#table-fields tbody');
+    $('.main-content').removeClass('hidden');
     $('ul#menuGroup li').removeClass('active');
     $(this).closest('li').addClass('active');
     $.ajax({
-        url: "/Params/Groups/"+ group +"/Files", type: 'GET',
+        url: "/Params/Group/" + group, type: 'GET',
         dataType: 'json',
     }).done(function (response) {
-        accordion.html("");
-        let count = 1;
-        for (var i in response) {
-            element = response[i];
-            accordion.append($('#tpl-content-tab').html()
-                .replace(/__head__/g, "head" + count)
-                .replace(/__body__/g, "body" + count)
-                .replace(/__title__/g, getFileName(element))
-                .replace(/__path__/g, element)
-            );
-            count++;
+        tbody.html("");
+        if (response.length > 0) {
+            let count = 0;
+            for (var i in response) {
+                count++;
+                element = response[i];
+                tbody.append($('#tpl-content-table').html()
+                    .replace(/__index__/g, count)
+                    .replace(/__id__/g, element.id)
+                    .replace(/__name__/g, element.visible_Name)
+                    .replace(/__value__/g, element.value)
+                    .replace(/__description__/g, element.description)
+                );
+            }
+            $('[data-toggle="popover"]').popover()
+        } else {
+            tbody.append("<tr><td colspan='5' align='center'> Empty Result! </td></tr>")
         }
     }).fail(function (xhr) {
         alert(xhr.responseText);
     });
 
     return false;
-});
-
-$(document).on('show.bs.collapse', '#accordion', function (event) {
-    const group = $(this).attr('data-group');
-    const path  = $(event.target).attr('data-path');
-    const tbody = $(event.target).find('tbody');
-    $.ajax({
-        url: "/Params/Group/" + group + "/File", type: 'POST',
-        data: { "path": path },
-        dataType: 'json',
-    }).done(function (response) {
-        tbody.html("");
-        let count = 1;
-        for (var i in response) {
-            element = response[i];
-            tbody.append($('#tpl-content-table').html()
-                .replace(/__index__/g, count)
-                .replace(/__id__/g, element.id)
-                .replace(/__section__/g, element.section)
-                .replace(/__key__/g, element.name)
-                .replace(/__name__/g, element.visible_Name)
-                .replace(/__value__/g, element.value)
-                .replace(/__description__/g, element.description)
-            );
-            count++;
-        }
-        $('[data-toggle="popover"]').popover()
-    }).fail(function (xhr) {
-        alert(xhr.responseText);
-    });
 });
 
 $(document).on('input', 'input[name="Value"]', function () {
@@ -65,7 +40,6 @@ $(document).on('input', 'input[name="Value"]', function () {
         $(this).closest('.form-group').removeClass('has-error');
     }
 });
-
 
 $(document).on('click', 'button.submitForm', function () {
     var index = $(this).attr('data-index');
