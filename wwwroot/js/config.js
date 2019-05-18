@@ -27,7 +27,7 @@
             tbody.append("<tr><td colspan='5' align='center'> Empty Result! </td></tr>")
         }
     }).fail(function (xhr) {
-        alert(xhr.responseText);
+        toastr.error(xhr.responseText);
     });
 
     return false;
@@ -44,22 +44,25 @@ $(document).on('input', 'input[name="Value"]', function () {
 $(document).on('click', 'button.submitForm', function () {
     var index = $(this).attr('data-index');
     $('form.formParam[data-index="' + index + '"]').trigger('submit');
+    return false;
 });
 
 $(document).on('submit', 'form.formParam', function (event) {
-    var target = $(this);    
-    var index = target.attr('data-index')
-    $.ajax({
-        url: target.attr('action'), type: 'POST',
-        data: target.serialize(),
-        dataType: 'json',
-    }).done(function (response) {
-        var input = $('input[data-index="'+ index +'"][name="Value"]');
-        input.attr('data-value', response.value);
-        input.closest('.form-group').removeClass('has-error').addClass('has-success');
-    }).fail(function (xhr) {
-        alert(xhr.responseText);
-    });
+    if (this.reportValidity()) {
+        var target = $(this);    
+        var index = target.attr('data-index')
+        $.ajax({
+            url: target.attr('action'), type: 'POST',
+            data: target.serialize(),
+            dataType: 'json',
+        }).done(function (response) {
+            var input = $('input[data-index="' + index + '"][name="Value"]');
+            input.attr('data-value', response.value);
+            input.closest('.form-group').removeClass('has-error').addClass('has-success');
+        }).fail(function (xhr) {
+            toastr.error(xhr.responseJSON.value)
+        });
+    }
     
     return false;
 });
@@ -73,17 +76,17 @@ $('#applyChanges').on('click', function (event) {
         dataType: 'json',
     }).done(function (response) {
         if (response.code == 0) {
-            alert("Comand No Work!")
+            toastr.error("Comand No Work!")
         } else {
             if (response.stdout.length > 0) {
-                alert(response.stdout);
+                toastr.success(response.stdout);
             }
             if (response.stderr.length > 0) {
-                alert(response.stderr)
+                toastr.error(response.stderr)
             }
         }
     }).fail(function (xhr) {
-        alert(xhr.responseText);
+        toastr.error(xhr.responseText);
     }).always(function() {
         $btn.button('reset')
     });

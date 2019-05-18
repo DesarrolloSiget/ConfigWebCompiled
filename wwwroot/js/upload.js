@@ -9,9 +9,9 @@
         processData: false,  // tell jQuery not to process the data
         contentType: false,  // tell jQuery not to set contentType
     }).done(function (response) {
-        alert(response);
+        toastr.success(response);
     }).fail(function (xhr) {
-        alert(xhr.responseText);
+        toastr.error(xhr.responseText);
     }).always(function (xhr) {
         target.trigger('reset');
     });
