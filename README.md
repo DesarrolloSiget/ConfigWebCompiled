@@ -48,19 +48,19 @@ En caso de presentar problemas es problable que alguna de las dependencias de .N
 6. Seleccionamos el Sitio Creado y en la parte izquierda del la ventana es cogemos la opción editar permisos. esto nos permitira editar los permisos del directorio donde localizamos los archivos del sitio, procedemos a dar control total sobre el directorio para el usuario **ISS_IUSRS** que corresponde al usuario del **IIS**
 ![](https://www.siget.app/storage/uploads/images/img36.png)
 
- ![](https://www.siget.app/storage/uploads/images/img37.png)
+![](https://www.siget.app/storage/uploads/images/img37.png) 
+ 
+![](https://www.siget.app/storage/uploads/images/img38.png)
+ 
+![](https://www.siget.app/storage/uploads/images/img39.png) 
 
- ![](https://www.siget.app/storage/uploads/images/img38.png)
-
- ![](https://www.siget.app/storage/uploads/images/img39.png)
-
- ![](https://www.siget.app/storage/uploads/images/img40.png)
+![](https://www.siget.app/storage/uploads/images/img40.png)
 
 ### 4. Descarga de Proyecto
 
-Hacer clic sobre el boton Clone or Download en la parte superiror del proyecto, luego escogemos la opción Download ZIP.
-Una vez termine la descarga ubicamos el archivo en procedemos a descomprimirlo. 
-Copiamos los archivos dentro de la carpeta configurada en IIS previamente.
+1. Hacer clic sobre el boton Clone or Download en la parte superiror del proyecto, luego escogemos la opción Download ZIP.
+2. Una vez termine la descarga ubicamos el archivo en procedemos a descomprimirlo. 
+3. Copiamos los archivos dentro de la carpeta configurada en IIS previamente.
 
 ### 5. Configuración Inicial del Proyecto
 
