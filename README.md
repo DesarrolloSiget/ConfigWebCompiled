@@ -61,6 +61,7 @@ En caso de presentar problemas es problable que alguna de las dependencias de .N
 1. Hacer clic sobre el boton Clone or Download en la parte superiror del proyecto, luego escogemos la opción Download ZIP.
 2. Una vez termine la descarga ubicamos el archivo en procedemos a descomprimirlo. 
 3. Copiamos los archivos dentro de la carpeta configurada en IIS previamente.
+4. Modificamos el archivo web.config
 
 ### 5. Configuración Inicial del Proyecto
 
