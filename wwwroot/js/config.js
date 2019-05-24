@@ -1,4 +1,6 @@
-﻿$('li a.group').on('click', function (event) {
+﻿var regTokes;
+
+$('li a.group').on('click', function (event) {
     var group = $(this).attr('data-name');
     var tbody = $('#table-fields tbody');
     $('.main-content').removeClass('hidden');
