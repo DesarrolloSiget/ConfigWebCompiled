@@ -57,15 +57,45 @@ En caso de presentar problemas es problable que alguna de las dependencias de .N
 ![](https://www.siget.app/storage/uploads/images/img40.png)
 
 ### 4. Descarga de Proyecto y Motaje en sitio web IIS
-
 1. Hacer clic sobre el boton Clone or Download en la parte superiror del proyecto, luego escogemos la opción Download ZIP.
-2. Una vez termine la descarga ubicamos el archivo en procedemos a descomprimirlo. 
+
+	![](https://www.siget.app/storage/uploads/images/img41.png)
+
+2. Una vez termine la descarga ubicamos el archivo en procedemos a descomprimirlo.
 3. Copiamos los archivos dentro de la carpeta configurada en IIS previamente (D:\imagsa\configWeb).
 4. Modificamos en el archivo web.config el parametro processPath para ejecutar la aplicación directamente desde la instalación de dotnet. Las rutas de instalación de dotnet son:  Para x64(C:\Program Files\dotnet\dotnet.exe) y para x86 (C:\Program Files (x86)\dotnet\dotnet.exe)
-![](https://www.siget.app/storage/uploads/images/img44.png)
+
+	![](https://www.siget.app/storage/uploads/images/img44.png)
+
+5. Reiniciamos los servicios del ISS, abrimos una ventana de linea de comandos con privilegios de administrador y ejecutamos:
+	```bash 
+	dotnet  --info
+	```
+	![](https://www.siget.app/storage/uploads/images/img45.png)
+
+	Luego accedemos al navedador de nuestra preferencia y colocamos en la url **http://localhost/** o  **http://127.0.0.1/**
+
+	![](https://www.siget.app/storage/uploads/images/img45-2.png)
 
 ### 5. Configuración Inicial del Proyecto
 
+
+Hasta el momento la aplicación ha quedado instalada, pero require algunos pasos adicionales para cumplir con sus objetivos.
+
+#### Base de Datos
+El proyecto cuenta con una base de datos inicial **(ParamDB.db)** la cual contiene las tablas de la aplicación vacias a exepción de los usuario.
+Para cumplir con el objetivo de la aplicación se require llenar las tablas:
+- **Param**, contiene los parametros de cada uno de los archivos .ini que estaran disponibles para ser manipulados por la aplicación.
+- **Backup**, contiene la lista de archivos .ini que se tendran en cuenta para realizar un backup o restauración de los archivos .ini en el servidor.
+- **Token**, contiene las palabras permitidas para la validación de los campos donde el tipo de formato corresponde a FORMATTOKENS.
+
+Para cargar la información podemos usar la aplicación la aplicación [SQLite Studio](https://sqlitestudio.pl/index.rvt?act=download "SQLite Studio") la cual nos permitira editar el contenido en las tablas de la base de datos.
+
+Una segunda opción es contar con una copia de una base de datos ya adecuada con los registros y remplazar el archivo de la base de datos por esta. Tener en cuenta que los usuario para login serian los que esten registrados en la nueva base de datos.
+
+#### Rutas de Parametrizadas
+
+El proyecto cuenta con un archivos de configuraciones llamado appsettings.json en la cual se deben configurar las rutas de los archivos para generar el backups, y restaurar, tambien contienen un la ruta del archivo plano con la contraseña para poder comprimir y descompimir los archivos .zip
 
 
 ### 6. Consideraciones
