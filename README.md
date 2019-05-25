@@ -107,3 +107,13 @@ La base de datos inicial ya cuenta con algunos usuario por defecto para acceder 
 Podara acceder con el y apartir de ahi administrar los demas usuarios. Se recomienda cambiar la clave de acceso para el administrador.
 
 ### 6. Consideraciones
+
+#### Acceso desde equipos externos via web
+
+En caso de tener problemas para acceder a la aplicación desde un equipo desde un equipo externo conectado a la red del servidor, es posible no tengas abierto el puerto configurado en el firewall, en este caso debe crear un regla de entrada para brindar acceso desde un equipo externo.
+
+[Abrir el puerto TCP en el firewall de Windows ](https://wiki.mcneel.com/es/zoo/window7firewall)
+
+#### Errores
+
+Al terminar algunas instalaciones es posible que no carge la pagina de login, en su lugar carga una pagina de error **HTTP 502** esto corresponde a problemas en cuanto a la instalación o configuarción correspondiente al .NET Core. Puedes revisar el visor de eventos de windows para obtener mas información y revisar nuevamente los pasos anteriores.
