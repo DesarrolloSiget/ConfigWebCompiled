@@ -56,12 +56,13 @@ En caso de presentar problemas es problable que alguna de las dependencias de .N
 
 ![](https://www.siget.app/storage/uploads/images/img40.png)
 
-### 4. Descarga de Proyecto
+### 4. Descarga de Proyecto y Motaje en sitio web IIS
 
 1. Hacer clic sobre el boton Clone or Download en la parte superiror del proyecto, luego escogemos la opción Download ZIP.
 2. Una vez termine la descarga ubicamos el archivo en procedemos a descomprimirlo. 
-3. Copiamos los archivos dentro de la carpeta configurada en IIS previamente.
-4. Modificamos el archivo web.config
+3. Copiamos los archivos dentro de la carpeta configurada en IIS previamente (D:\imagsa\configWeb).
+4. Modificamos en el archivo web.config el parametro processPath para ejecutar la aplicación directamente desde la instalación de dotnet. Las rutas de instalación de dotnet son:  Para x64(C:\Program Files\dotnet\dotnet.exe) y para x86 (C:\Program Files (x86)\dotnet\dotnet.exe)
+![](https://www.siget.app/storage/uploads/images/img44.png)
 
 ### 5. Configuración Inicial del Proyecto
 
