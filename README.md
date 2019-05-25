@@ -1,9 +1,22 @@
 # ConfigWebCompiled
 
+### 1. Habilitar Consola de Administración de IIS (Internet Information Server) 
 
-### 1. Configuración de IIS (Internet Information Server)
+1. Vaya a **Panel de control > Programas > Programas y características > Activar o desactivar las características de Windows (lado izquierdo de la pantalla).**
 
+2. Abra el nodo Internet Information Services. Abra el nodo Herramientas de administración web.
 
+3. Active la casilla de Consola de administración de IIS.
+
+4. Active la casilla de Servicios World Wide Web.
+
+5. Acepte las características predeterminadas de Servicios World Wide Web o personalice las características de IIS.
+
+6. Si la instalación de IIS requiere un reinicio, reinicie el sistema.
+
+![](https://www.siget.app/storage/uploads/images/habilitarIIS.png)
+
+Para mas información visitar este [enlace](https://docs.microsoft.com/es-mx/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2 "enlace").
 
 ### 2. Instalación de ASP .NET CORE Runtime & Hosting 2.1
 
