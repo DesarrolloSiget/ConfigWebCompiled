@@ -97,5 +97,13 @@ Una segunda opción es contar con una copia de una base de datos ya adecuada con
 
 El proyecto cuenta con un archivos de configuraciones llamado appsettings.json en la cual se deben configurar las rutas de los archivos para generar el backups, y restaurar, tambien contienen un la ruta del archivo plano con la contraseña para poder comprimir y descompimir los archivos .zip
 
+#### Login
+
+La base de datos inicial ya cuenta con algunos usuario por defecto para acceder de acuerdo a los roles (ADMIN, INSTALLER, READONLY). Las credenciales del administrador son:
+
+**Usuario:**    admin@admin.com
+**Contraseña:** Admin01*
+
+Podara acceder con el y apartir de ahi administrar los demas usuarios. Se recomienda cambiar la clave de acceso para el administrador.
 
 ### 6. Consideraciones
