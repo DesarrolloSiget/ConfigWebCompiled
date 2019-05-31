@@ -75,18 +75,9 @@ $('#applyChanges').on('click', function (event) {
     $.ajax({
         url: uri, type: 'POST',
         data: {},
-        dataType: 'json',
+        dataType: 'html',
     }).done(function (response) {
-        if (response.code == 0) {
-            toastr.error("Comand No Work!")
-        } else {
-            if (response.stdout.length > 0) {
-                toastr.success(response.stdout);
-            }
-            if (response.stderr.length > 0) {
-                toastr.error(response.stderr)
-            }
-        }
+        toastr.success(response);
     }).fail(function (xhr) {
         toastr.error(xhr.responseText);
     }).always(function() {

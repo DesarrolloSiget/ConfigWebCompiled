@@ -5,13 +5,13 @@
     $.ajax({
         url: target.attr('action'), type: 'POST',
         data: formData,
-        dataType: 'json',
+        dataType: 'html',
         processData: false,  // tell jQuery not to process the data
         contentType: false,  // tell jQuery not to set contentType
     }).done(function (response) {
-        toastr.success(response);
+        swal(response, '', 'success');
     }).fail(function (xhr) {
-        toastr.error(xhr.responseText);
+        swal(xhr.responseText, '', 'error');
     }).always(function (xhr) {
         target.trigger('reset');
     });
@@ -24,5 +24,5 @@ $("#file").fileinput({
     dropZoneEnabled: false,
     maxFileCount: 1,
     showPreview: false,
-    allowedFileExtensions: ["zip"]
+    allowedFileExtensions: ["json"]
 });
