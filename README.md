@@ -111,7 +111,7 @@ Una segunda opción es contar con una copia de una base de datos ya adecuada con
 
 El proyecto cuenta con unos archivos de configuraciones llamados **appsettings.json** y **appsettings.production.json** en la cual se deben configurar las rutas de los archivos para generar el backups, y restauración, tambien contienen un la ruta del archivo plano con la contraseña para poder comprimir y descompimir los archivos .zip en backup factory.
 
-![](https://www.siget.app/storage/uploads/images/appsetting.png)
+![](https://www.siget.app/storage/uploads/images/appsetting2.png)
 
 #### Login
 
